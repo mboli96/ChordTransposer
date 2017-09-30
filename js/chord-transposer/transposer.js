@@ -1,17 +1,52 @@
-var NOTES_HIGHER={
-    'C': 'C#',4
+const NOTES_HIGHER = {
+    'Cb': 'C',
+    'C': 'C#',
     'C#': 'D',
+    'Db': 'D',
     'D': 'Eb',
+    'D#': 'E',
     'Eb': 'E',    
     'E': 'F',
+    'E#': 'A',
+    'Fb': 'F',
     'F': 'F#',
     'F#': 'G',
+    'Gb': 'G',
     'G': 'G#',
-    'G#': 'A',    
+    'G#': 'A',
+    'Ab': 'A',  
     'A': 'Bb',
+    'A#': 'B',
     'Bb': 'B',
-    'B': 'C'
+    'B': 'C',
+    'B#': 'A'
 };
+
+const NOTES_LOWER = {
+    'Cb': 'Bb',
+    'C': 'B',
+    'C#': 'C',
+    'Db': 'C',
+    'D': 'C#',
+    'D#': 'D',
+    'Eb': 'D',    
+    'E': 'Eb',
+    'E#': 'G',
+    'Fb': 'D#',
+    'F': 'E',
+    'F#': 'F',
+    'Gb': 'F',
+    'G': 'F#',
+    'G#': 'G',
+    'Ab': 'G',  
+    'A': 'G#',
+    'A#': 'A',
+    'Bb': 'A',
+    'B': 'Bb',
+    'B#': 'G'
+};
+
+const CHORD = /^[A-G](b|#)?/i;
 
 /**
  * Transpose a chord higher or lower
@@ -20,27 +55,28 @@ var NOTES_HIGHER={
  * @return {string} - Resultant chord
  */
 function transpose(chord, tone) {
+    var note = CHORD.exec(chord)[0];
+    var decorators = chord.slice(note.length);
     var result;
-
-    switch(tone) {
+    switch (tone) {
         case -1: 
-            result = NOTES_LOWER[NOTES_LOWER[chord]];
+            result = NOTES_LOWER[NOTES_LOWER[note]];
             break;
 
         case -0.5:
-            result = NOTES_LOWER[chord];
+            result = NOTES_LOWER[note];
             break;
 
         case 0.5:
-            result = NOTES_HIGHER[chord];
+            result = NOTES_HIGHER[note];
             break;
 
         case 1:
-            result = NOTES_HIGHER[NOTES_HIGHER[chord]];
+            result = NOTES_HIGHER[NOTES_HIGHER[note]];
             break;
 
         default:
-            result = 'unknown';
+            result = chord;
     }
-    return result;
+    return result + decorators;
 }
