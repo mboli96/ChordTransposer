@@ -7,6 +7,10 @@ body {
     text-align: center;
 }
 
+.alert-individual-chord {
+    margin-top: 2rem;
+}
+
 .btn-individual-chord {
     margin-bottom: 5px;
 } 
