@@ -16,3 +16,5 @@ function toneLower() {
 
 $(document).on("click", "#button-semitone-higher", semitoneHigher);
 $(document).on("click", "#button-semitone-lower", semitoneLower);
+$(document).on("click", "#button-tone-higher", toneHigher);
+$(document).on("click", "#button-tone-lower", toneLower);

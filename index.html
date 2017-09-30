@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chord Transposer</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/chord-transposer.css">
 </head>
 <body>
+    <nav class="navbar navbar-toggleable-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Chord Transposer</a>
+    </nav>
     <div class="container">
-        <h1>Chord Transposer</h1>
-        <div class="form-group">
-            <label for="chord">Chord</label>
-            <input id="chord" name="chord" type="text">
+        <div class="starter-template">
+            <h1>Individual chord</h1>
+            <p class="lead">Enter a chord and click on the buttons to transpose it higher or lower a semitone or a tone</p>
+            <div class="d-block mx-auto">
+                <button id="button-tone-lower" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-double-down" aria-hidden="true"></i></i></button>
+                <button id="button-semitone-lower" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                <input id="chord" class="input-individual-chord" name="chord" type="text" placeholder="C#m7">
+                <button id="button-semitone-higher" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+                <button id="button-tone-higher" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+            </div>
         </div>
-        <button id="button-semitone-higher" class="btn btn-primary"><i class="fa fa-chevron-up" aria-hidden="true"></i>&nbsp;Higher</button>
-        <button id="button-semitone-lower" class="btn btn-primary"><i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;Lower</button>
     </div>
     <script src="js/jquery.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
