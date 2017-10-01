@@ -1,51 +1,18 @@
-const PATTERN = /^[A-G](b|#)?((m|maj|M|add|aug|dim|sus)([2-7]|9|11|13)?)?(\/[A-G](b|#)?)?$/i;
+$(document).ready(function() {
+    const PATTERN = /^[A-G](b|#)?((m|maj|M|add|aug|dim|sus)([2-7]|9|11|13)?)?(\/[A-G](b|#)?)?$/i;
 
-function throwAlertWrongChord() {
-    $("#alert-wrong-chord").addClass('show');
-    setTimeout(function() { $("#alert-wrong-chord").removeClass('show'); }, 3000);
-}
-
-function checkChord(chord) {
-    return PATTERN.test(chord);
-}
-
-function semitoneHigher() {
-    var input = $("#chord").val();
-    if (checkChord(input)) {
-        $("#chord").val(transpose(input, 0.5));
-    } else {
-        throwAlertWrongChord();
+    function transposeIndividualChord(tone) {
+        var input = $("#individual-chord").val();
+        if (PATTERN.test(input)) {
+            $("#individual-chord").val(transpose(input, tone));
+        } else {
+            $("#alert-individual-wrong-chord").addClass('show');
+            setTimeout(function() { $("#alert-individual-wrong-chord").removeClass('show'); }, 3000);
+        }
     }
-}
 
-function semitoneLower() {
-    var input = $("#chord").val();
-    if (checkChord(input)) {
-        $("#chord").val(transpose(input, -0.5));
-    } else {
-        throwAlertWrongChord();
-    }
-}
-
-function toneHigher() {
-    var input = $("#chord").val();
-    if (checkChord(input)) {
-        $("#chord").val(transpose(input, 1));
-    } else {
-        throwAlertWrongChord();
-    }
-}
-
-function toneLower() {
-    var input = $("#chord").val();
-    if (checkChord(input)) {
-        $("#chord").val(transpose(input, -1));
-    } else {
-        throwAlertWrongChord();
-    }
-}
-
-$(document).on("click", "#button-semitone-higher", semitoneHigher);
-$(document).on("click", "#button-semitone-lower", semitoneLower);
-$(document).on("click", "#button-tone-higher", toneHigher);
-$(document).on("click", "#button-tone-lower", toneLower);
+    $("#btn-individual-semitone-higher").click(function() { transposeIndividualChord(0.5) });
+    $("#btn-individual-semitone-lower").click(function() { transposeIndividualChord(-0.5) });
+    $("#btn-individual-tone-higher").click(function() { transposeIndividualChord(1) });
+    $("#btn-individual-tone-lower").click(function() { transposeIndividualChord(-1) });
+});
