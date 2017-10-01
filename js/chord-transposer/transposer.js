@@ -47,7 +47,7 @@ const NOTES_LOWER = {
 };
 
 const CHORD = /^[A-G](b|#)?/i;
-const BAR = /\//g;
+const BAR = /\//i;
 
 /**
  * Transpose a chord higher or lower. Separate it before if it is a bar chord to transpose
@@ -59,7 +59,7 @@ const BAR = /\//g;
 function transpose(chord, tone) {
     var bar = BAR.exec(chord);
     return bar !== null 
-        ? transposeIndividualChord(chord.slice(0, bar.index), tone) + "/" + transposeIndividualChord(chord.slice (bar.index + 1), tone) 
+        ? transposeIndividualChord(chord.slice(0, bar.index), tone) + "/" + transposeIndividualChord(chord.slice(bar.index + 1), tone)
         : transposeIndividualChord(chord, tone);
 }
 
