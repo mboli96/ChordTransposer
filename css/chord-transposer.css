@@ -7,33 +7,33 @@ body {
     text-align: center;
 }
 
-.alert-individual-chord {
+.alert-individual {
     margin-top: 2rem;
 }
 
-.btn-individual-chord {
+.btn-individual {
     margin-bottom: 5px;
 } 
 
-.input-individual-chord {
+.input-individual {
     width: 60px;
     height: 36px;
 }
 
 @media(min-width: 320px) and (max-width: 359px) {
-    .input-individual-chord {
+    .input-individual {
         width: 79px;
     }
 }
 
 @media(min-width: 360px) and (max-width: 374px) {
-    .input-individual-chord {
+    .input-individual {
         width: 100px;
     }
 }
 
 @media(min-width: 375px) {
-    .input-individual-chord {
+    .input-individual {
         width: 134px;
     }
 }

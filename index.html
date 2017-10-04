@@ -17,13 +17,13 @@
             <h1>Individual chord</h1>
             <p class="lead">Enter a chord and click on the buttons to transpose it higher or lower a semitone or a tone</p>
             <div class="d-block mx-auto">
-                <button id="button-tone-lower" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-double-down" aria-hidden="true"></i></i></button>
-                <button id="button-semitone-lower" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                <input id="chord" class="input-individual-chord" name="chord" type="text" placeholder="C#m7">
-                <button id="button-semitone-higher" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-                <button id="button-tone-higher" class="btn-individual-chord btn btn-primary"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+                <button id="btn-individual-tone-lower" class="btn-individual btn btn-primary"><i class="fa fa-angle-double-down" aria-hidden="true"></i></i></button>
+                <button id="btn-individual-semitone-lower" class="btn-individual btn btn-primary"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                <input id="individual-chord" class="input-individual" name="chord" type="text" placeholder="C#m7">
+                <button id="btn-individual-semitone-higher" class="btn-individual btn btn-primary"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+                <button id="btn-individual-tone-higher" class="btn-individual btn btn-primary"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
             </div>
-            <div id="alert-wrong-chord" class="alert-individual-chord alert alert-danger alert-dismissible fade" role="alert">
+            <div id="alert-individual-wrong-chord" class="alert-individual alert alert-danger alert-dismissible fade" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Error!</strong> I can't recognize the chord you have introduced.
             </div>
