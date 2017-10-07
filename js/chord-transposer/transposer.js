@@ -66,32 +66,21 @@ function transpose(chord, tone) {
 /**
  * Transpose individual chord higuer or lower
  * @param {string} chord - Chord to transpose
- * @param {number} tone - How much tones it will be transposed (-1, -0.5, 0.5 or 1)
+ * @param {number} tone - How much tones it will be transposed
  * @return {string} - Resultant chord
  */
 function transposeIndividualChord(chord, tone) {
     var note = CHORD.exec(chord)[0];
     var decorators = chord.slice(note.length);
-    var result;
-    switch (tone) {
-        case -1: 
-            result = NOTES_LOWER[NOTES_LOWER[note]];
-            break;
-
-        case -0.5:
-            result = NOTES_LOWER[note];
-            break;
-
-        case 0.5:
-            result = NOTES_HIGHER[note];
-            break;
-
-        case 1:
-            result = NOTES_HIGHER[NOTES_HIGHER[note]];
-            break;
-
-        default:
-            result = chord;
+    var result = note;
+    if (tone > 0) {
+        for (var i = 0; i < tone; i += 0.5) {
+            result = NOTES_HIGHER[result];
+        }
+    } else {
+        for (var i = 0; i > tone; i -= 0.5) {
+            result = NOTES_LOWER[result];
+        }
     }
     return result + decorators;
 }
